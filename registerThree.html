@@ -47,6 +47,7 @@
       </button>
     </div>
 
+    <div>
     <div
       class="grid grid-cols-3 sm:grid-cols-4 mx-3 sm:mx-64 bg-white shadow-md rounded mt-3 sm:mt-24"
     >
@@ -129,6 +130,27 @@
         20h
       </button>
     </div>
+    <div class="showOpenHours text-blue-700 font-semibold text-lg text-center mt-6">
+      <div id="showmonday">
+          Lundi
+      </div>
+      <div id="showtuesday">
+        Mardi
+      </div>
+      <div id="showwednesday">
+        Mercredi
+      </div>
+      <div id="showthursday">
+        Jeudi
+      </div>
+      <div id="showfriday">
+        Vendredi
+      </div>
+      <div id="showsaturday">
+        Samedi
+      </div>
+    </div>
+  </div>
   </body>
 
   <script>
@@ -139,11 +161,13 @@
       selectorsDay.forEach((element, index) => {
         element.addEventListener('click', (event) => {
           // Send the text content of the clicked element for processing
-          selectedDay =   dayHours = {
+          selectedDay = {
             dayName: event.target.id,
             hours: []
           }
-
+          if(selectedDay.hours.lenght === undefined){
+            selectedDay.hours.lenght = 0;
+          }
         })
         });
       
@@ -151,8 +175,16 @@
         selectors.forEach((element, index) => {
         element.addEventListener('click', (event) => {
           // Send the text content of the clicked element for processing
-          selectedDay.hours.push(event.target.getAttribute('data-index'));
-         console.log(selectedDay);
+          console.log(selectedDay.hours.lenght);
+          if(selectedDay.hours.lenght < 4) {
+            selectedDay.hours.push(event.target.getAttribute('data-index'));
+
+            let value = document.getElementById('show'+selectedDay.dayName).innerHTML;
+            value = value + event.target.getAttribute('data-index') + " ";
+            document.getElementById('show'+selectedDay.dayName).innerHTML = value;
+            selectedDay.hours.lenght++;
+          }
+          
         })
         });
       //document.getElementById("nextPage").addEventListener("click", function () {

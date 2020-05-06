@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/build/tailwind.css" />
+
+    <title>Inco book</title>
+  </head>
+  <body class="bg-gray-200">
+    <div
+      class="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-center mt-8 pb-10"
+    >
+      Sélectionnez vos horaires d'ouvertures
+    </div>
+    <div id="day" class="flex flex-wrap items-center justify-center">
+      <button id="monday"
+        class="dayButtons rounded-lg px-8 m-3 hover:bg-blue-700 focus:outline-none focus:shadow-outline active:bg-indigo-600 shadow-inner text-white font-bold bg-blue-500"
+      >
+        Lundi
+      </button>
+      <button id="tuesday"
+        class="dayButtons rounded-lg px-8 m-3 hover:bg-blue-700 focus:outline-none focus:shadow-outline active:bg-indigo-600 shadow-inner text-white font-bold bg-blue-500"
+      >
+        Mardi
+      </button>
+      <button id="wednesday"
+        class="dayButtons rounded-lg px-8 m-3 hover:bg-blue-700 focus:outline-none focus:shadow-outline active:bg-indigo-600 shadow-inner text-white font-bold bg-blue-500"
+      >
+        Mercredi
+      </button>
+      <button id="thursday"
+        class="dayButtons rounded-lg px-8 m-3 hover:bg-blue-700 focus:outline-none focus:shadow-outline active:bg-indigo-600 shadow-inner text-white font-bold bg-blue-500"
+      >
+        Jeudi
+      </button>
+      <button id="friday"
+        class="dayButtons rounded-lg px-8 m-3 hover:bg-blue-700 focus:outline-none focus:shadow-outline active:bg-indigo-600 shadow-inner text-white font-bold bg-blue-500"
+      >
+        Vendredi
+      </button>
+      <button id="saturday"
+        class="dayButtons rounded-lg px-8 m-3 hover:bg-blue-700 focus:outline-none focus:shadow-outline active:bg-indigo-600 shadow-inner text-white font-bold bg-blue-500"
+      >
+        Samedi
+      </button>
+    </div>
+
+    <div
+      class="grid grid-cols-3 sm:grid-cols-4 mx-3 sm:mx-64 bg-white shadow-md rounded mt-3 sm:mt-24"
+    >
+      <button
+        data-index="8h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        8h
+      </button>
+      <button
+        data-index="9h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        9h
+      </button>
+      <button
+        data-index="10h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        10h
+      </button>
+      <button
+        data-index="11h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 focus:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        11h
+      </button>
+      <button
+        data-index="12h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        12h
+      </button>
+      <button
+        data-index="13h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        13h
+      </button>
+      <button
+        data-index="14h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        14h
+      </button>
+      <button
+        data-index="15h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        15h
+      </button>
+      <button
+        data-index="16h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        16h
+      </button>
+      <button
+        data-index="17h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        17h
+      </button>
+      <button
+        data-index="18h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        18h
+      </button>
+      <button
+        data-index="19h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        19h
+      </button>
+      <button
+        data-index="20h"
+        class="hourButton m-3 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
+        20h
+      </button>
+    </div>
+  </body>
+
+  <script>
+      
+      let selectedDay;
+      
+      const selectorsDay = [].slice.call(document.getElementsByClassName('dayButtons'));
+      selectorsDay.forEach((element, index) => {
+        element.addEventListener('click', (event) => {
+          // Send the text content of the clicked element for processing
+          selectedDay =   dayHours = {
+            dayName: event.target.id,
+            hours: []
+          }
+
+        })
+        });
+      
+        const selectors = [].slice.call(document.getElementsByClassName('hourButton'));
+        selectors.forEach((element, index) => {
+        element.addEventListener('click', (event) => {
+          // Send the text content of the clicked element for processing
+          selectedDay.hours.push(event.target.getAttribute('data-index'));
+         console.log(selectedDay);
+        })
+        });
+      //document.getElementById("nextPage").addEventListener("click", function () {
+        //Send list of name to firebase
+    //  });
+  </script>
+</html>

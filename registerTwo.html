@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/build/tailwind.css" />
+
+    <title>Inco book</title>
+  </head>
+  <body class="bg-gray-200">
+    <div class="flex flex-col items-center justify-center h-screen">
+      <div
+        class="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl pb-10"
+      >
+        Entrer le nom de vos employées
+      </div>
+      <div>
+        <input
+          class="shadow appearance-none border rounded p-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="employeeName"
+          type="text"
+          placeholder="Nom de l'employer"
+        />
+        <button
+          id="addEmployee"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 rounded mt-8"
+        >
+          Ajouter
+        </button>
+      </div>
+
+      <div id="newEmployeePlaces" class="mt-4 flex flex-wrap"></div>
+
+      <form action="registerThree.html"  method="get">
+        <button id="nextPage"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-8"
+        >
+          Next
+        </button>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    let listOfName = [];
+    document
+      .getElementById("addEmployee")
+      .addEventListener("click", function () {
+        const newEmployee = document.createElement("div");
+
+        newEmployee.classList.add("my-2");
+        newEmployee.classList.add("mx-8");
+        newEmployee.classList.add("px-8");
+        newEmployee.classList.add("py-1");
+        newEmployee.classList.add("inline");
+        newEmployee.classList.add("rounded-lg");
+        newEmployee.classList.add("shadow-inner");
+        newEmployee.classList.add("text-white");
+        newEmployee.classList.add("font-bold");
+        newEmployee.classList.add("bg-blue-500");
+
+        newEmployee.innerHTML = document.getElementById("employeeName").value;
+        listOfName.push(document.getElementById("employeeName").value);
+        document.getElementById("newEmployeePlaces").appendChild(newEmployee);
+      });
+
+    document
+      .getElementById("nextPage")
+      .addEventListener("click", function () {
+          //Send list of name to firebase
+      });
+  </script>
+</html>
